@@ -2,9 +2,21 @@
   <div class="Home">
     <img alt="pokewiky" src="../assets/pokewiky.png">
     <div class="center">
-      <input type="text" v-model="idPokemon">
-      <button type="button" @click="buscar">Buscar</button>
-      <img :src="imagen" alt="">
+       <b-nav-form class="col-md-6 offset-md-3">
+          <b-form-input size="sm" class="mr-sm-2" placeholder="Busca tu Pokémon..." type="text" v-model="idPokemon">
+          </b-form-input>
+          <b-button variant="danger" size="sm" type="button" @click="buscar">Buscar</b-button>
+        </b-nav-form>
+         <b-card title="Pokémon" img-top tag="article" style="max-width: 25rem;" class="col-md-8 offset-md-4">
+              <title>{{name}}</title>
+              <img src="../assets/pikachu.gif" alt=""  @click="imagen">
+        <b-card-text>
+              Este es un pokémon...
+      </b-card-text>
+
+    <b-button href="#" variant="warning">Agregar a favoritos </b-button>
+  </b-card>
+      <!---->
       <MostrarPokemon/>
    
     </div>
@@ -24,7 +36,8 @@ export default{
       show: false,
       isActive: true,
       imagen: "",
-      idPokemon:""
+      idPokemon:"",
+      name:""
     };
   },
   methods:{
@@ -34,6 +47,7 @@ export default{
         .then((response) =>{
         console.log(response.data.sprites.front_default);
         this.imagen=response.data.sprites.front_default;
+        this.name=response.data.name
         //console.log(response);
     })
     .catch((err)=>{
@@ -46,7 +60,7 @@ export default{
 
 <style scoped>
 img{
-    width:35%;
-    height:35%;
+    width:25%;
+    height:25%;
   }
 </style>
