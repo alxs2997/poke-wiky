@@ -7,15 +7,16 @@
           </b-form-input>
           <b-button variant="danger" size="sm" type="button" @click="buscar">Buscar</b-button>
         </b-nav-form>
-         <b-card title="Pokémon" img-top tag="article" style="max-width: 25rem;" class="col-md-8 offset-md-4">
+         <b-card title="Pokemón" img-top tag="article" style="max-width: 25rem;" class="col-md-8 offset-md-4">
               <title>{{name}}</title>
-              <img src="../assets/pikachu.gif" alt=""  @click="imagen">
+              <img :src="imagen" @click="imagen" alt="">
         <b-card-text>
-              Este es un pokémon...
+             Aquí aparecera la información completa de tu Pokémon
       </b-card-text>
-
     <b-button href="#" variant="warning">Agregar a favoritos </b-button>
+     
   </b-card>
+   <img src= "../assets/pikachu.gif" width="2px" height="2px" alt="">
       <!---->
       <MostrarPokemon/>
    
