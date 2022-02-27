@@ -7,15 +7,11 @@
           </b-form-input>
           <b-button variant="danger" size="sm" type="button" @click="buscar">Buscar</b-button>
         </b-nav-form>
-         <b-card title="Pokemón" img-top tag="article" style="max-width: 25rem;" class="col-md-8 offset-md-4">
-              <title>{{name}}</title>
-              <img :src="imagen" @click="imagen" alt="">
-        <b-card-text>
-             Aquí aparecera la información completa de tu Pokémon
-      </b-card-text>
+         <b-card :title="name" img-top tag="article" style="max-width: 25rem;" class="data"><h2 ></h2>
+              <img :src="imagen" v-show="imagen" alt="">
+        <b-card-text class="details" :text="xp"></b-card-text>
     <b-button href="#" variant="warning">Agregar a favoritos </b-button>
-     
-  </b-card>
+      </b-card>
    <img src= "../assets/pikachu.gif" width="2px" height="2px" alt="">
       <!---->
       <MostrarPokemon/>
@@ -38,7 +34,8 @@ export default{
       isActive: true,
       imagen: "",
       idPokemon:"",
-      name:""
+      name:"",
+      xp:""
     };
   },
   methods:{
@@ -49,6 +46,7 @@ export default{
         console.log(response.data.sprites.front_default);
         this.imagen=response.data.sprites.front_default;
         this.name=response.data.name
+        this.xp=response.data.base_experience;
         //console.log(response);
     })
     .catch((err)=>{
