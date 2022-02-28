@@ -1,9 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+<b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-collapse id="nav-collapse" is-nav>
+           <b-navbar-nav>
+             <b-nav-item href="#">
+                <router-link to="/">
+                <img id="logohome" src="../src/assets/colorpwiki.png" alt="" class="mr-sm-2" width="38px" height="39px" center>
+                </router-link> 
+              </b-nav-item>
+              <b-nav-item href="#" class="mr-sm-6">
+                <router-link to="/about">
+                <img src="../src/assets/pokebola.png" alt="" class="mr-sm-2" width="30px" height="30px" center>
+                </router-link> 
+              </b-nav-item>
+           </b-navbar-nav>
+      <!-- Right aligned nav items -->
+      <b-navbar-nav>
+        <b-nav-item-dropdown text="Integrantes:" right>
+          <b-dropdown-item href="#">David Alexis Gallegos González</b-dropdown-item>
+          <b-dropdown-item href="#">Nestor Wilfredo Chavez Ramirez</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
     <router-view/>
   </div>
 </template>
